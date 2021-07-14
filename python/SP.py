@@ -1,6 +1,6 @@
 from loadCriteo import loadCriteoBatch
 
-import cPickle as pkl
+import pickle as pkl
 from sklearn.metrics import*
 from tqdm import tqdm
 

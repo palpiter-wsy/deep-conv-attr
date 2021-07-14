@@ -16,17 +16,17 @@ def loadLRF(batchsize, max_seq_len, max_input, fin):
         s = 1. / total_seqlen[i]
 
         for j in range(total_seqlen[i]):
-            if not ant.has_key(0):
+            if not 0 in ant:
                 ant[0] = total_data[i][j][0] / total_seqlen[i]
             else:
                 ant[0] += total_data[i][j][0] / total_seqlen[i]
 
-            if not ant.has_key(1):
+            if not 1 in ant:
                 ant[1] = total_data[i][j][1] / total_seqlen[i]
             else:
                 ant[1] += total_data[i][j][1] / total_seqlen[i]
             for k in total_data[i][j][2:]:
-                if not ant.has_key(k):
+                if not k in ant:
                     ant[k] = s
                 else:
                     ant[k] += s

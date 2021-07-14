@@ -1,11 +1,12 @@
-import cPickle as pkl
+import pickle as pkl
 import os
 import time
 from datetime import timedelta
 import sys
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from sklearn.metrics import *
 
 from wrapped_loadCriteo import loadLRF
@@ -120,7 +121,7 @@ class LR_f_criteo():
         print("AUC = " + "{:.4f}".format(auc))
         mean_loss = np.mean(total_loss)
         print("Loss = " + "{:.4f}".format(mean_loss))
-        print "Load_time = " + str(timedelta(seconds=total_time))
+        print("Load_time = " + str(timedelta(seconds=total_time)))
         _pY = np.argmax(pred, 1)
         Y = np.argmax(label, 1)
         precision = precision_score(Y, _pY)
@@ -133,7 +134,7 @@ class LR_f_criteo():
         total_start_time = time.time()
         losses = []
         for epoch in range(self.epochs):
-            print '-' * 30, 'Train epoch: %d' % epoch, '-' * 30
+            print('-' * 30, 'Train epoch: %d' % epoch, '-' * 30)
             start_time = time.time()
 
             print("Training...")
@@ -144,7 +145,7 @@ class LR_f_criteo():
             self.log(epoch, result, 'train')
             time_per_epoch = time.time() - start_time
             seconds_left = int((self.epochs - epoch) * time_per_epoch)
-            print ('Time per epoch: %s, Est. complete in: %s' % (
+            print('Time per epoch: %s, Est. complete in: %s' % (
                 str(timedelta(seconds=time_per_epoch)),
                 str(timedelta(seconds=seconds_left))
             ))
@@ -228,7 +229,7 @@ if __name__ == '__main__':
     elif len(sys.argv) == 1:
         learning_rate = 1e-4
     else:
-        print 'usage: python LR.py [learning rate]'
+        print('usage: python LR.py [learning rate]')
         exit(1)
     model = LR_f_criteo("../Model/LR", learning_rate=learning_rate)
     model.train_all_epochs()

@@ -1,4 +1,4 @@
-import cPickle as pkl
+import pickle as pkl
 import time
 
 import numpy as np
@@ -159,7 +159,7 @@ def vertical_attr(beta, omega, num_of_channel, data, lenth):
             continue
         for i in range(l):
             v[i] += item['p'][i]
-    print v
+    print(v)
 
 
 def test(beta, omega, num_of_channel, test_data):
@@ -182,8 +182,8 @@ def test(beta, omega, num_of_channel, test_data):
 
     auc = roc_auc_score(y, pred)
     loglikelyhood = -log_loss(y, pred)
-    print "Testing Auc= " + "{:.6f}".format(auc)
-    print "Testing loglikelyhood " + "{:.6f}".format(loglikelyhood)
+    print("Testing Auc= " + "{:.6f}".format(auc))
+    print("Testing loglikelyhood " + "{:.6f}".format(loglikelyhood))
     return auc
 
 
@@ -238,7 +238,7 @@ def main():
     auc = []
     for epoch in range(num_of_epoches):
         beta, omega = optmize(train_data, num_of_channel, beta, omega)
-        print 'Test on Epoch %d' % epoch
+        print('Test on Epoch %d' % epoch)
         auc.append(test(beta, omega, num_of_channel, test_data))
         if epoch > 10 and auc[-1] < auc[-2] < auc[-3]:
             break

@@ -3,10 +3,12 @@ import time
 from datetime import timedelta
 
 import numpy as np
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import tqdm
 from sklearn.metrics import *
-import cPickle as pkl
+import pickle as pkl
 
 import sys
 import loadCriteo
@@ -131,7 +133,7 @@ class AMTA():
 
     def train_one_epoch(self):
         num_examples = traindata_size
-        print num_examples
+        print(num_examples)
         total_loss = []
         total_loss_0 = []
         total_loss_1 = []
@@ -187,7 +189,7 @@ class AMTA():
         print("Loss\tLoss_0\tLoss_1\tLoss_2\tAUC")
         f_log.write("Loss\tLoss_0\tLoss_1\tLoss_2\tAUC\n")
         for epoch in range(self.epochs):
-            print '-' * 30, 'Train epoch: %d' % epoch, '-' * 30
+            print('-' * 30, 'Train epoch: %d' % epoch, '-' * 30)
             start_time = time.time()
             f_log.write("Train epoch {}".format(epoch))
             print("Training...")
@@ -198,7 +200,7 @@ class AMTA():
             self.test(epoch)
             time_per_epoch = time.time() - start_time
             seconds_left = int((self.epochs - epoch) * time_per_epoch)
-            print ('Time per epoch: %s, Est. complete in: %s' % (
+            print('Time per epoch: %s, Est. complete in: %s' % (
                 str(timedelta(seconds=time_per_epoch)),
                 str(timedelta(seconds=seconds_left))
             ))
@@ -213,7 +215,7 @@ class AMTA():
 
     def test(self, epoch=0):
         num_examples = testdata_size
-        print num_examples
+        print(num_examples)
         total_loss = []
         total_loss_0 = []
         total_loss_1 = []
@@ -339,7 +341,7 @@ class AMTA():
                         v = attribution[j][i]
                         attr[j] += v
 
-        print attr
+        print(attr)
 
 
 f_log = open("log_AMTA.txt", 'w')
@@ -467,7 +469,7 @@ elif len(sys.argv) == 1:
     learning_rate = 1e-4
     batchsize = 1000
 else:
-    print 'usage: python AMTA.py [learning rate] [batch size]'
+    print('usage: python AMTA.py [learning rate] [batch size]')
     exit(1)
 f_train = open(train_path)
 f_test = open(test_path)

@@ -1,6 +1,6 @@
 from __future__ import print_function
 
-import cPickle as pkl
+import pickle as pkl
 import os
 import time
 from datetime import timedelta
@@ -8,7 +8,9 @@ import random
 import sys
 
 import numpy as np
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from sklearn.metrics import *
 
 from model_config import config
@@ -142,7 +144,7 @@ class DualAttention(object):
 		y = tf.reshape(y, [-1, self.config.n_classes])
 		y = tf.split(value=y, num_or_size_splits=self.config.seq_max_len, axis=0)
 		# encoder
-		gru_cell = tf.contrib.rnn.GRUCell(self.config.n_hidden)
+		gru_cell = tf.compat.v1.nn.rnn_cell.GRUCell(self.config.n_hidden)
 		gru_cell = tf.nn.rnn_cell.DropoutWrapper(gru_cell, input_keep_prob=self.keep_prob,
 												 output_keep_prob=self.keep_prob)
 		states_h, last_h = tf.nn.dynamic_rnn(gru_cell, x, self.seqlen, dtype=tf.float32, time_major=True)
