@@ -1,0 +1,84 @@
+------------------------------ Train epoch: 0 ------------------------------
+Training...
+AUC = 0.5212
+Loss = 0.6397
+Load_time = 0:00:00
+AUC = 0.5336
+Loss = 0.6318
+Time per epoch: 0:00:06.944087, Est. complete in: 0:01:09
+------------------------------ Train epoch: 1 ------------------------------
+Training...
+AUC = 0.5294
+Loss = 0.6279
+Load_time = 0:00:00
+AUC = 0.5418
+Loss = 0.6203
+Time per epoch: 0:00:06.959188, Est. complete in: 0:01:02
+------------------------------ Train epoch: 2 ------------------------------
+Training...
+AUC = 0.5377
+Loss = 0.6168
+Load_time = 0:00:00
+AUC = 0.5497
+Loss = 0.6096
+Time per epoch: 0:00:06.854136, Est. complete in: 0:00:54
+------------------------------ Train epoch: 3 ------------------------------
+Training...
+AUC = 0.5461
+Loss = 0.6065
+Load_time = 0:00:00
+AUC = 0.5575
+Loss = 0.5996
+Time per epoch: 0:00:07.063857, Est. complete in: 0:00:49
+------------------------------ Train epoch: 4 ------------------------------
+Training...
+AUC = 0.5547
+Loss = 0.5970
+Load_time = 0:00:00
+AUC = 0.5657
+Loss = 0.5905
+Time per epoch: 0:00:06.910225, Est. complete in: 0:00:41
+------------------------------ Train epoch: 5 ------------------------------
+Training...
+AUC = 0.5632
+Loss = 0.5881
+Load_time = 0:00:00
+AUC = 0.5741
+Loss = 0.5821
+Time per epoch: 0:00:06.865212, Est. complete in: 0:00:34
+------------------------------ Train epoch: 6 ------------------------------
+Training...
+AUC = 0.5719
+Loss = 0.5800
+Load_time = 0:00:00
+AUC = 0.5825
+Loss = 0.5742
+Time per epoch: 0:00:06.938490, Est. complete in: 0:00:27
+------------------------------ Train epoch: 7 ------------------------------
+Training...
+AUC = 0.5805
+Loss = 0.5725
+Load_time = 0:00:00
+AUC = 0.5911
+Loss = 0.5669
+Time per epoch: 0:00:07.037007, Est. complete in: 0:00:21
+------------------------------ Train epoch: 8 ------------------------------
+Training...
+AUC = 0.5893
+Loss = 0.5656
+Load_time = 0:00:00
+AUC = 0.5997
+Loss = 0.5601
+Time per epoch: 0:00:07.251255, Est. complete in: 0:00:14
+------------------------------ Train epoch: 9 ------------------------------
+Training...
+AUC = 0.5981
+Loss = 0.5592
+Load_time = 0:00:00
+AUC = 0.6084
+Loss = 0.5539
+Time per epoch: 0:00:07.155983, Est. complete in: 0:00:07
+
+Total training time: 0:01:10.900788
+AUC = 0.6113
+Loss = 0.5519
